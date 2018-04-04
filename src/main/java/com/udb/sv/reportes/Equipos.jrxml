@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="41de0952-44ff-4886-9beb-835ec3fe698f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select nomb_equi, desc_equi from equipos]]>
+	</queryString>
+	<field name="nomb_equi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="desc_equi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="216" y="24" width="140" height="20" uuid="81a3806e-a045-4872-b5d3-0e6b722a3668"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Equipos registrados]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="427" y="24" width="100" height="20" uuid="388c9185-447a-4670-bedc-394af3224c09"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="142" y="2" width="100" height="20" uuid="5892728f-165f-4950-8cd3-357b7e89c09f"/>
+				<text><![CDATA[Nombre del equipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="2" width="100" height="20" uuid="1a76cfb3-78b5-4f67-bd4a-6465e4e488f1"/>
+				<text><![CDATA[Descripcion del equipo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="142" y="0" width="100" height="20" uuid="1dd1919e-55a1-4baa-9a9d-5d7cece2fd32"/>
+				<textFieldExpression><![CDATA[$F{nomb_equi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="0" width="100" height="20" uuid="bd26dcdf-1284-466c-adcc-5c1474a38cad"/>
+				<textFieldExpression><![CDATA[$F{desc_equi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="192" y="15" width="80" height="20" uuid="5b605303-7b7d-43fc-bffe-92257f8a9961"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="272" y="15" width="40" height="20" uuid="8dc64015-0346-4216-9f28-7f57ce0f4a90"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="300" y="15" width="100" height="20" uuid="20645f72-2ffc-45c5-a6f2-e0688b1ff686"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
